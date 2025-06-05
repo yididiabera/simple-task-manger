@@ -22,16 +22,34 @@ const writeData = (data) => {
   }
 };
 
-exports.getAllTasks = (filterStatus) => {
+exports.getAllTasks = (filters = {}) => {
   const data = readData();
   let tasks = data.tasks;
 
-  if (filterStatus) {
-    tasks = tasks.filter((task) => task.status === filterStatus);
+  if (filters.status) {
+    tasks = tasks.filter((task) => task.status === filters.status);
+  }
+
+  if (filters.title) {
+    tasks = tasks.filter((task) =>
+      task.title.toLowerCase().includes(filters.title.toLowerCase())
+    );
   }
 
   return tasks;
 };
+
+// exports.getAllTasks = (filterStatus) => {
+
+//   const data = readData();
+//   let tasks = data.tasks;
+
+//   if (filterStatus) {
+//     tasks = tasks.filter((task) => task.status === filterStatus);
+//   }
+
+//   return tasks;
+// };
 
 exports.createTask = (task) => {
   const data = readData();

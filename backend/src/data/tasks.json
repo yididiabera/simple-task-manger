@@ -2,10 +2,10 @@
   "tasks": [
     {
       "id": 1,
-      "title": "Complete Math Assignment",
+      "title": "Complete Math Homework",
       "description": "Solve calculus problems from Chapter 5",
       "status": "pending",
-      "createdAt": "2024-06-05T19:53:00Z"
+      "createdAt": "2024-06-05T10:00:00Z"
     },
     {
       "id": 2,
@@ -19,7 +19,51 @@
       "title": "Submit Science Project",
       "description": "Finish report on renewable energy sources",
       "status": "completed",
-      "createdAt": "2024-06-01T09:00:00Z"
+      "createdAt": "2024-06-01T09:00:00Z",
+      "updatedAt": "2024-06-03T15:45:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Read Literature Assignment",
+      "description": "Analyze themes in 'To Kill a Mockingbird'",
+      "status": "pending",
+      "createdAt": "2024-06-02T18:00:00Z"
+    },
+    {
+      "id": 5,
+      "title": "Practice for Debate Competition",
+      "description": "Research argument points and rehearse delivery",
+      "status": "completed",
+      "createdAt": "2024-05-30T11:00:00Z",
+      "updatedAt": "2024-06-01T16:20:00Z"
+    },
+    {
+      "id": 6,
+      "title": "Dinner with Family",
+      "description": "Spend quality time sharing a meal and catching up",
+      "status": "planned",
+      "createdAt": "2024-06-06T19:00:00Z"
+    },
+    {
+      "id": 7,
+      "title": "Movie Night with Friends",
+      "description": "Watch a favorite movie and enjoy snacks together",
+      "status": "planned",
+      "createdAt": "2024-06-07T20:30:00Z"
+    },
+    {
+      "id": 8,
+      "title": "Weekend Picnic",
+      "description": "Relax outdoors with family and friends, enjoy nature",
+      "status": "planned",
+      "createdAt": "2024-06-08T12:00:00Z"
+    },
+    {
+      "id": 1749145586549,
+      "title": "Complete Task Manager",
+      "description": "Implement file storage and authentication",
+      "status": "pending",
+      "createdAt": "2025-06-05T17:46:26.549Z"
     }
   ]
 }

@@ -1,9 +1,18 @@
 const taskService = require("../services/taskService");
 
 exports.getAllTasks = (req, res) => {
-  const tasks = taskService.getAllTasks(req.query.status);
+  const filters = {
+    status: req.query.status,
+    title: req.query.title,
+  };
+
+  const tasks = taskService.getAllTasks(filters);
   res.json(tasks);
 };
+// exports.getAllTasks = (req, res) => {
+//   const tasks = taskService.getAllTasks(req.query.status);
+//   res.json(tasks);
+// };
 
 exports.createTask = (req, res) => {
   const { title, description } = req.body;

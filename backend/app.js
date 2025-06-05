@@ -13,7 +13,10 @@ app.use("/", routes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send("Something broke!");
+  res.status(500).json({
+    error: "Internal Server Error",
+    message: err.message || "Something went wrong",
+  });
 });
 
 const PORT = process.env.PORT || 3000;
