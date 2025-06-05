@@ -28,23 +28,29 @@ The API will now be running on http://localhost:3000 🚀
 🔑 Authentication
 All endpoints require an API key, which should be included in the request headers:
 
-🛠 Postman Setup
-1️⃣ Open Postman 2️⃣ Create a new collection for Task Manager API 3️⃣ Add the following requests:
+bash
+X-API-Key: my-secret-key-123
+Valid API keys are stored in src/data/api-keys.json:
 
-🔑 Authentication
-All requests must include the following header:
-
-Key: X-API-Key  
-Value: my-secret-key-123  
-You can set this globally in Postman by:
-
-Navigating to the Authorization tab
-
-Selecting Header as the key type
-
-Entering your API key
-
+json
+["my-secret-key-123", "team-key-456"]
 📌 API Endpoints
+Method	Endpoint	Description
+GET	/api/tasks	Fetch all tasks (supports filtering)
+POST	/api/tasks	Create a new task (title required)
+PUT	/api/tasks/:id	Update an existing task
+DELETE	/api/tasks/:id	Delete a task
+🔎 Filtering Options
+You can filter tasks by status and title:
+
+bash
+GET /api/tasks?status=pending
+GET /api/tasks?title=math
+🛠 Postman Setup
+1️⃣ Open Postman
+2️⃣ Create a new collection for Task Manager API
+3️⃣ Add the following requests:
+📝 Example Requests
 GET - Fetch All Tasks
 Method: GET
 
@@ -60,6 +66,7 @@ To filter tasks by status or title, use query params:
 
 URL Examples:
 
+bash
 http://localhost:3000/api/tasks?status=pending
 http://localhost:3000/api/tasks?title=math
 Method: GET
@@ -114,5 +121,4 @@ X-API-Key: my-secret-key-123
 Expected Response: 204 No Content (Task deleted)
 
 📜 License
-This project is MIT licensed—modify, extend, and use freely! 🚀📜 License
-This project is MIT licensed. Feel free to modify and use it! 🚀
+This project is MIT licensed—modify, extend, and use freely! 🚀
