@@ -29,11 +29,11 @@ The API will now be running on http://localhost:3000 🚀
 All endpoints require an API key, which should be included in the request headers:
 
 bash
-X-API-Key: my-secret-key-123
+X-API-Key: secret-key-123
 Valid API keys are stored in src/data/api-keys.json:
 
 json
-["my-secret-key-123", "team-key-456"]
+["secret-key-123", "key-123"]
 📌 API Endpoints
 Method	Endpoint	Description
 GET	/api/tasks	Fetch all tasks (supports filtering)
@@ -58,7 +58,7 @@ URL: http://localhost:3000/api/tasks
 
 Headers:
 
-X-API-Key: my-secret-key-123
+X-API-Key: secret-key-123
 Expected Response: JSON list of tasks
 
 GET - Filter Tasks
@@ -82,7 +82,7 @@ URL: http://localhost:3000/api/tasks
 
 Headers:
 
-X-API-Key: my-secret-key-123  
+X-API-Key: secret-key-123  
 Content-Type: application/json
 Body (JSON - raw):
 
@@ -100,7 +100,7 @@ URL: http://localhost:3000/api/tasks/1 (replace 1 with actual task ID)
 
 Headers:
 
-X-API-Key: my-secret-key-123  
+X-API-Key: secret-key-123  
 Content-Type: application/json
 Body (JSON - raw):
 
@@ -117,7 +117,7 @@ URL: http://localhost:3000/api/tasks/1
 
 Headers:
 
-X-API-Key: my-secret-key-123
+X-API-Key: secret-key-123
 Expected Response: 204 No Content (Task deleted)
 
 📜 License
