@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Complete Math Assignment",
+      "description": "Solve calculus problems from Chapter 5",
+      "status": "pending",
+      "createdAt": "2024-06-05T19:53:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Prepare for History Exam",
+      "description": "Revise World War II notes and key events",
+      "status": "in progress",
+      "createdAt": "2024-06-04T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Submit Science Project",
+      "description": "Finish report on renewable energy sources",
+      "status": "completed",
+      "createdAt": "2024-06-01T09:00:00Z"
+    }
+  ]
+}

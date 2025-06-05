@@ -1,29 +1,13 @@
-// src/controllers/taskController.js
-let tasks = [
-  {
-    id: 1,
-    title: "Learn Express",
-    description: "Build a task manager API",
-    status: "pending",
-    createdAt: "2024-02-20T10:00:00Z",
-  },
-];
+const taskService = require("../services/taskService");
 
 exports.getAllTasks = (req, res) => {
-  const { status } = req.query;
-  let filteredTasks = tasks;
-
-  if (status) {
-    filteredTasks = tasks.filter((task) => task.status === status);
-  }
-
-  res.json(filteredTasks);
+  const tasks = taskService.getAllTasks(req.query.status);
+  res.json(tasks);
 };
 
 exports.createTask = (req, res) => {
   const { title, description } = req.body;
 
-  // Basic validation
   if (!title || title.trim() === "") {
     return res.status(400).json({ error: "Title is required" });
   }
@@ -36,6 +20,37 @@ exports.createTask = (req, res) => {
     createdAt: new Date().toISOString(),
   };
 
-  tasks.push(newTask);
-  res.status(201).json(newTask);
+  const createdTask = taskService.createTask(newTask);
+  res.status(201).json(createdTask);
+};
+
+exports.updateTask = (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  // Validate status if provided
+  if (updates.status && !["pending", "completed"].includes(updates.status)) {
+    return res
+      .status(400)
+      .json({ error: 'Status must be "pending" or "completed"' });
+  }
+
+  const updatedTask = taskService.updateTask(id, updates);
+
+  if (!updatedTask) {
+    return res.status(404).json({ error: "Task not found" });
+  }
+
+  res.json(updatedTask);
+};
+
+exports.deleteTask = (req, res) => {
+  const { id } = req.params;
+  const isDeleted = taskService.deleteTask(id);
+
+  if (!isDeleted) {
+    return res.status(404).json({ error: "Task not found" });
+  }
+
+  res.status(204).end();
 };
