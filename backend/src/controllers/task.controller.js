@@ -1,7 +1,17 @@
+import Task from "../models/task.model.js"
+
 // @desc  Get all task
 // @route Get /tasks
 // @access protected
-export const getTasks = (req, res) => {
+export const getTasks = async (req, res) => {
+    try {
+        const user = req.userId;
+        const tasks = await Task.findOne({ user })
+
+        res.status(200).json({ tasks })
+    } catch {
+        res.status(500).json({ message: "Failed to fetch a task", error: error.message })
+    }
 
 }
 
