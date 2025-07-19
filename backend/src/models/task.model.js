@@ -5,13 +5,18 @@ const taskSchema = new mongoose.Schema({
         type: String,
         require: [true, "A task must have a title"],
         trim: true,
-        index: true
+        // index: true
     },
-    completed: {
-        type: Boolean,
-        default: false,
-        index: true
+    status: {
+        type: String,
+        enum: ['pending', 'completed'],
+        default: "pending"
     },
+    // completed: {
+    //     type: Boolean,
+    //     default: false,
+    //     index: true
+    // },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
